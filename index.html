@@ -125,38 +125,6 @@
             color: #b0c4de;
         }
 
-        .stats-preview {
-            background: #0d1219;
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            border: 1px solid #253341;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            margin: 1.5rem 0;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2ecc71;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #8e9eae;
-        }
-
         footer {
             margin-top: 5rem;
             text-align: center;
@@ -215,49 +183,10 @@
             </div>
         </div>
 
-        <div class="stats-preview">
-            <h3>📈 Live Network Stats</h3>
-            <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-number" id="serverCount">—</div>
-                    <div class="stat-label">Active Servers Tracked</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number" id="guildCount">—</div>
-                    <div class="stat-label">Discord Guilds</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Max Servers / Guild</div>
-                </div>
-            </div>
-            <p style="font-size: 0.85rem; margin-top: 0.5rem;">*Stats update every minute from the bot's public API (placeholder).</p>
-        </div>
-
         <footer>
             <p>Reforger Watch is not affiliated with Bohemia Interactive. | Built for the Arma Reforger community.</p>
             <p>© 2025 – Open source bot | <a href="#" style="color:#2ecc71;">GitHub</a></p>
         </footer>
     </div>
-
-    <script>
-        // Optional: fetch real stats from your bot's endpoint (if you expose a simple API)
-        // For now, we simulate live data. Replace with your actual API endpoint later.
-        async function fetchStats() {
-            // Example: if you have a public endpoint like https://yourdomain.com/api/stats
-            // fetch('https://yourdomain.com/api/stats')
-            //   .then(res => res.json())
-            //   .then(data => {
-            //       document.getElementById('serverCount').innerText = data.totalServers;
-            //       document.getElementById('guildCount').innerText = data.guildCount;
-            //   })
-            //   .catch(console.error);
-            // Simulated demo values – remove this block when you have real API.
-            document.getElementById('serverCount').innerText = Math.floor(Math.random() * 80 + 20);
-            document.getElementById('guildCount').innerText = Math.floor(Math.random() * 15 + 2);
-        }
-        fetchStats();
-        setInterval(fetchStats, 60000);
-    </script>
 </body>
 </html>
