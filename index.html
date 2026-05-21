@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reforger Watch – Discord Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0c10;
+            font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+            color: #e1e7f0;
+            line-height: 1.5;
+        }
+
+        /* Gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.05), transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header / Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #1e2a2e;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #a0b3d9;
+            margin-bottom: 2rem;
+        }
+
+        .btn-invite {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #2ecc71;
+            color: #0a0c10;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(46,204,113,0.3);
+        }
+
+        .btn-invite:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46,204,113,0.4);
+        }
+
+        /* Feature grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: #11161f;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #253341;
+            transition: border 0.2s;
+        }
+
+        .card:hover {
+            border-color: #2ecc71;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: #b0c4de;
+        }
+
+        .stats-preview {
+            background: #0d1219;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            border: 1px solid #253341;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2ecc71;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #8e9eae;
+        }
+
+        footer {
+            margin-top: 5rem;
+            text-align: center;
+            color: #5f6c80;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e2a32;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            h1 { font-size: 2rem; }
+            .hero { margin-bottom: 2rem; }
+            .features { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="logo">🛡️</div>
+            <h1>Reforger Watch</h1>
+            <div class="tagline">
+                Live server tracking for Arma Reforger • Real-time players • Mod lists • Discord integration
+            </div>
+            <a href="https://discord.com/oauth2/authorize?client_id=1506617309488218112&permissions=4503601774922768&integration_type=0&scope=bot" 
+               class="btn-invite" 
+               target="_blank">
+                ➕ Invite Bot to Discord
+            </a>
+        </div>
+
+        <div class="features">
+            <div class="card">
+                <h3>🎮 Live Player Count</h3>
+                <p>Displays current players / max players with a clean progress bar. Updates every 60 seconds.</p>
+            </div>
+            <div class="card">
+                <h3>📦 Mod List Viewer</h3>
+                <p>Click the "Mods" button to see all server mods with versions & IDs. Search mods by name.</p>
+            </div>
+            <div class="card">
+                <h3>🔧 Easy Setup</h3>
+                <p>Admin-only /setup command – add, edit, or remove servers. Automatically creates a dedicated category and channel.</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Region & Info</h3>
+                <p>Shows scenario, BattlEye status, password protection, official server flag, and optional IP display.</p>
+            </div>
+            <div class="card">
+                <h3>🔄 Auto‑rename</h3>
+                <p>Channel name updates with player count (e.g., 🟢 EU1 • 42 Players Online). Handles rate limits gracefully.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Global Tracking</h3>
+                <p>Supports up to 8 servers per Discord guild. All data stored in a fast MySQL database.</p>
+            </div>
+        </div>
+
+        <div class="stats-preview">
+            <h3>📈 Live Network Stats</h3>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number" id="serverCount">—</div>
+                    <div class="stat-label">Active Servers Tracked</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="guildCount">—</div>
+                    <div class="stat-label">Discord Guilds</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Max Servers / Guild</div>
+                </div>
+            </div>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">*Stats update every minute from the bot's public API (placeholder).</p>
+        </div>
+
+        <footer>
+            <p>Reforger Watch is not affiliated with Bohemia Interactive. | Built for the Arma Reforger community.</p>
+            <p>© 2025 – Open source bot | <a href="#" style="color:#2ecc71;">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Optional: fetch real stats from your bot's endpoint (if you expose a simple API)
+        // For now, we simulate live data. Replace with your actual API endpoint later.
+        async function fetchStats() {
+            // Example: if you have a public endpoint like https://yourdomain.com/api/stats
+            // fetch('https://yourdomain.com/api/stats')
+            //   .then(res => res.json())
+            //   .then(data => {
+            //       document.getElementById('serverCount').innerText = data.totalServers;
+            //       document.getElementById('guildCount').innerText = data.guildCount;
+            //   })
+            //   .catch(console.error);
+            // Simulated demo values – remove this block when you have real API.
+            document.getElementById('serverCount').innerText = Math.floor(Math.random() * 80 + 20);
+            document.getElementById('guildCount').innerText = Math.floor(Math.random() * 15 + 2);
+        }
+        fetchStats();
+        setInterval(fetchStats, 60000);
+    </script>
+</body>
+</html>
